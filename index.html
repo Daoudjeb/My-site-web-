@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقعي الشخصي</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 10px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .social-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+        }
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="language-selector" onclick="changeLanguage()">
+    اختر اللغة
+</div>
+
+<header>
+    <h1 id="welcome-message">أهلاً وسهلاً في موقعي الشخصي</h1>
+</header>
+
+<section>
+    <img src="Picsart_25-11-28_21-13-10-367.jpg" alt="الصورة الشخصية" class="profile-image">
+
+    <h2 id="personal-info">معلوماتي الشخصية</h2>
+    <p id="name">اسمي: [اسمك]</p>
+    <p id="email">البريد الإلكتروني: [بريدك الإلكتروني]</p>
+    <p id="phone">الهاتف: [رقم هاتفك]</p>
+    <p id="location">الموقع: [مكانك]</p>
+</section>
+
+<section>
+    <h2 id="education">المؤهلات العلمية</h2>
+    <ul>
+        <li>[المؤهل 1]</li>
+        <li>[المؤهل 2]</li>
+        <li>[المؤهل 3]</li>
+    </ul>
+</section>
+
+<section>
+    <h2 id="experience">الخبرات العملية</h2>
+    <ul>
+        <li>[وظيفة 1] - [الشركة 1] - [التواريخ]</li>
+        <li>[وظيفة 2] - [الشركة 2] - [التواريخ]</li>
+        <li>[وظيفة 3] - [الشركة 3] - [التواريخ]</li>
+    </ul>
+</section>
+
+<section>
+    <h2 id="social-links-title">روابط حساباتي</h2>
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/yourprofile" target="_blank" id="linkedin">لينكدإن</a>
+        <a href="https://twitter.com/yourprofile" target="_blank" id="twitter">تويتر</a>
+        <a href="https://www.github.com/yourprofile" target="_blank" id="github">جيت هاب</a>
+        <a href="https://www.instagram.com/yourprofile" target="_blank" id="instagram">إنستاجرام</a>
+    </div>
+</section>
+
+<footer>
+    <p style="text-align: center; padding: 20px; background-color: #333; color: white;" id="copyright">حقوق الطبع والنشر © 2025 [اسمك]</p>
+</footer>
+
+<script>
+    let currentLanguage = 'ar';
+
+    const translations = {
+        en: {
+            welcome: "Welcome to My Personal Website",
+            personalInfo: "Personal Information",
+            name: "Name",
+            email: "Email",
+            phone: "Phone",
+            location: "Location",
+            education: "Educational Qualifications",
+            experience: "Work Experience",
+            socialLinks: "My Social Media Links",
+            linkedin: "LinkedIn",
+            twitter: "Twitter",
+            github: "GitHub",
+            instagram: "Instagram",
+            copyright: "Copyright © 2025 [Your Name]"
+        },
+        fr: {
+            welcome: "Bienvenue sur mon site personnel",
+            personalInfo: "Informations personnelles",
+            name: "Nom",
+            email: "Email",
+            phone: "Téléphone",
+            location: "Emplacement",
+            education: "Qualifications académiques",
+            experience: "Expérience professionnelle",
+            socialLinks: "Mes liens sociaux",
+            linkedin: "LinkedIn",
+            twitter: "Twitter",
+            github: "GitHub",
+            instagram: "Instagram",
+            copyright: "Droits d'auteur © 2025 [Votre Nom]"
+        },
+        ar: {
+            welcome: "أهلاً وسهلاً في موقعي الشخصي",
+            personalInfo: "معلوماتي الشخصية",
+            name: "اسمي",
+            email: "البريد الإلكتروني",
+            phone: "الهاتف",
+            location: "الموقع",
+            education: "المؤهلات العلمية",
+            experience: "الخبرات العملية",
+            socialLinks: "روابط حساباتي",
+            linkedin: "لينكدإن",
+            twitter: "تويتر",
+            github: "جيت هاب",
+            instagram: "إنستاجرام",
+            copyright: "حقوق الطبع والنشر © 2025 [اسمك]"
+        }
+    };
+
+    function changeLanguage() {
+        if (currentLanguage === 'ar') {
+            currentLanguage = 'en';
+        } else if (currentLanguage === 'en') {
+            currentLanguage = 'fr';
+        } else {
+            currentLanguage = 'ar';
+        }
+
+        document.getElementById('welcome-message').innerText = translations[currentLanguage].welcome;
+        document.getElementById('personal-info').innerText = translations[currentLanguage].personalInfo;
+        document.getElementById('name').innerText = translations[currentLanguage].name;
+        document.getElementById('email').innerText = translations[currentLanguage].email;
+        document.getElementById('phone').innerText = translations[currentLanguage].phone;
+        document.getElementById('location').innerText = translations[currentLanguage].location;
+        document.getElementById('education').innerText = translations[currentLanguage].education;
+        document.getElementById('experience').innerText = translations[currentLanguage].experience;
+        document.getElementById('social-links-title').innerText = translations[currentLanguage].socialLinks;
+        document.getElementById('linkedin').innerText = translations[currentLanguage].linkedin;
+        document.getElementById('twitter').innerText = translations[currentLanguage].twitter;
+        document.getElementById('github').innerText = translations[currentLanguage].github;
+        document.getElementById('instagram').innerText = translations[currentLanguage].instagram;
+        document.getElementById('copyright').innerText = translations[currentLanguage].copyright;
+    }
+</script>
+
+</body>
+</html>
